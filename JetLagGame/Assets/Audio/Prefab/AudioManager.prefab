@@ -44,3 +44,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153d756a61b3a4684ac6a555560dc518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioBusses:
+    masterBus: bus:/MASTER BUS
+    sfxBus: bus:/MASTER BUS/SFX BUS
+    musicBus: bus:/MASTER BUS/MUSIC BUS
+  sfx:
+    mainCharacter:
+      footsteps:
+        Guid:
+          Data1: 0
+          Data2: 0
+          Data3: 0
+          Data4: 0
+        Path: 
+      jump:
+        Guid:
+          Data1: 0
+          Data2: 0
+          Data3: 0
+          Data4: 0
+        Path: 
+    interactables:
+      boxDrag:
+        Guid:
+          Data1: 0
+          Data2: 0
+          Data3: 0
+          Data4: 0
+        Path: 
+    ambiance:
+      ambiance:
+        Guid:
+          Data1: 0
+          Data2: 0
+          Data3: 0
+          Data4: 0
+        Path: 
+  music:
+    music:
+      Guid:
+        Data1: 0
+        Data2: 0
+        Data3: 0
+        Data4: 0
+      Path: 
