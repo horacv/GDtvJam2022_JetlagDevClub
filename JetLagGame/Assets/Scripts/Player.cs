@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private bool pulling;
     public Light light;//light emanating from character
     private float lightRange;
+    public Transform respawnTransform;
+    public float deathY;
     void Start()
     {
         managerObject = GameObject.FindWithTag("Manager");
@@ -36,6 +38,19 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        // Check if the player hit a spike
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Spike"))
+        {
+            KillPlayer();
+        }
+    }
+
+    public void KillPlayer()
+    {
+        // Reset the player position to spawn location
+        transform.position = respawnTransform.position;
+        transform.rotation = respawnTransform.rotation;
+        rb.velocity = Vector3.zero;
     }
 
     void Update()
@@ -75,6 +90,10 @@ public class Player : MonoBehaviour
         }
 
         light.range = lightRange;
+
+        // Kill the player if they fall too far down
+        if (transform.position.y <= deathY)
+            KillPlayer();
     }
 
     //function called by arm when in contact with block you can pull
