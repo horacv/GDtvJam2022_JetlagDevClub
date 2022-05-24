@@ -299,6 +299,21 @@
      <Reference Include="UnityEditor.WindowsStandalone.Extensions">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.2f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
+     <Reference Include="unityplastic">
+     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.collab-proxy@1.15.17/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.VisualScripting.IonicZip">
+     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
+     </Reference>
+     <Reference Include="log4netPlastic">
+     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.collab-proxy@1.15.17/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+     </Reference>
+     <Reference Include="ReportGeneratorMerged">
+     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
+     </Reference>
+     <Reference Include="Newtonsoft.Json">
+     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
+     </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
      <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.collab-proxy@1.15.17/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll</HintPath>
      </Reference>
@@ -308,26 +323,11 @@
      <Reference Include="Unity.VisualScripting.YamlDotNet">
      <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll</HintPath>
      </Reference>
-     <Reference Include="Unity.VisualScripting.IonicZip">
-     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll</HintPath>
-     </Reference>
-     <Reference Include="log4netPlastic">
-     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.collab-proxy@1.15.17/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
+     <Reference Include="Unity.VisualScripting.TextureAssets">
+     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
      <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-     </Reference>
-     <Reference Include="ReportGeneratorMerged">
-     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.testtools.codecoverage@1.0.1/lib/ReportGenerator/ReportGeneratorMerged.dll</HintPath>
-     </Reference>
-     <Reference Include="Newtonsoft.Json">
-     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/Newtonsoft.Json.dll</HintPath>
-     </Reference>
-     <Reference Include="unityplastic">
-     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.collab-proxy@1.15.17/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>
-     </Reference>
-     <Reference Include="Unity.VisualScripting.TextureAssets">
-     <HintPath>/Volumes/Projects/7. UNITY PROJECTS/2022/5. May/GDtvJam2022_JetlagDevClub/JetLagGame/Library/PackageCache/com.unity.visualscripting@1.7.8/Editor/VisualScripting.Core/EditorAssetResources/Unity.VisualScripting.TextureAssets.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>/Applications/Unity/Hub/Editor/2021.3.2f1/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
