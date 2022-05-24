@@ -59,3 +59,11 @@ sysinfo.txt
 crashlytics-build.properties
 
 JetLagGame/Assets/Plugins/FMOD/Cache
+JetLagGame/FMODUnityResonanceEditor.csproj
+JetLagGame/FMODUnity.csproj
+JetLagGame/FMODUnityEditor.csproj
+JetLagGame/UserSettings/Layouts/default-2021.dwlt
+JetLagGame/UserSettings/EditorUserSettings.asset
+JetLagGame/Library/ScriptAssemblies/Assembly-CSharp.pdb
+JetLagGame/Library/ScriptAssemblies/Assembly-CSharp.dll
+JetLagGame/FMODUnityResonance.csproj
