@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     private GameObject[] pbList;//list that will hold pushable blocks in scene
     Vector3 blockObjDis = new Vector3(1.5f, 0.5f, 0);//distance between pushable block and game object centers
     private bool pulling;
-    //private float lightDis = 0;
+    public Light light;//light emanating from character
+    private float lightRange;
     void Start()
     {
         managerObject = GameObject.FindWithTag("Manager");
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
         jump = new Vector3(0.0f, 15.0f, 1.5f);
         pbList = GameObject.FindGameObjectsWithTag("Pushable");
         pulling = false;
+        lightRange = 10;
     }
 
     void OnCollisionStay(Collision collision)
@@ -62,12 +64,23 @@ public class Player : MonoBehaviour
             if (transform.position.y <= 1.6f) { rb.AddForce(jump, ForceMode.Impulse); }
         }
 
+        //controlling light just to test out, will have game logic incorporated later
+        if (Input.GetKey(KeyCode.UpArrow) && lightRange<500)
+        {
+            lightRange = lightRange + 1;
+        }
+        if (Input.GetKey(KeyCode.DownArrow) && lightRange>0)
+        {
+            lightRange = lightRange - 1;
+        }
+
+        light.range = lightRange;
     }
 
     //function called by arm when in contact with block you can pull
     public void PullBlock(GameObject block) {
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.H))
         {
             pulling = true;
             block.GetComponent<Rigidbody>().velocity = transform.forward * -1 * speed;
