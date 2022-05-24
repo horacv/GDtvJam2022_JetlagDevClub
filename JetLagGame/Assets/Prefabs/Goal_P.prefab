@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 1669367871466682418}
   - component: {fileID: 1669367871466682419}
   m_Layer: 0
-  m_Name: finish_goal
-  m_TagString: Untagged
+  m_Name: Goal_P
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2260
+  m_VersionIndex: 2272
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
