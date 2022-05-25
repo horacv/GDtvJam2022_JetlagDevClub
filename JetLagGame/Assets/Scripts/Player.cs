@@ -4,30 +4,55 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject managerObject;
-    public AudioManager audioManager;
-    Rigidbody rb;
-    public float speed = 5;//speed
-    public Vector3 jump;//force applied at jump
-    public bool isGrounded;
-    private GameObject[] pbList;//list that will hold pushable blocks in scene
+    [Header("Movement")]
+    [SerializeField] float speed = 5;
+    [SerializeField] float jumpForce;
+
+    [Header("Ground Check")]
+    [SerializeField] LayerMask groundMask;
+    [SerializeField] Transform groundCheckTransform;
+    [SerializeField] float groundCheckDistance;
+    [SerializeField] float characterRadius;
+
+    [Header("Grab")]
+    [SerializeField] Transform playerArm;
+
+    [Header("Other Variables")]
     Vector3 blockObjDis = new Vector3(1.5f, 0.5f, 0);//distance between pushable block and game object centers
-    private bool pulling;
-    public Light light;//light emanating from character
-    private float lightRange;
+    [SerializeField] Light light;//light emanating from character
     public Transform respawnTransform;
-    public float deathY;
-    public LayerMask groundMask;
-    public Transform groundCheckTransform;
-    public float groundCheckDistance;
-    public float characterRadius;
+    [SerializeField] float deathY;
+
+    // Runtime Variables
+    private float inputX;
+    private float inputY;
+    private bool jump;
+
+    private float lightRange;
+    private bool isGrounded;
+    private bool pulling;
+    [SerializeField] private GameObject grabbedObject;
+    private int grabDirection;
+
+    private GameObject[] pbList;//list that will hold pushable blocks in scene
+
+    // Components
+    Rigidbody rb;
+
+    // Other Objects
+    GameObject managerObject;
+    AudioManager audioManager;
+
     void Start()
     {
-        managerObject = GameObject.FindWithTag("Manager");
-        Physics.gravity = new Vector3(0, -30.0F, 0);
+        // Get Components
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-        jump = new Vector3(0.0f, 15.0f, 1.5f);
+
+        // Get Objects
+        managerObject = GameObject.FindWithTag("Manager");
+        audioManager = FindObjectOfType<AudioManager>();
+
+        Physics.gravity = new Vector3(0, -30.0F, 0);
         pbList = GameObject.FindGameObjectsWithTag("Pushable");
         pulling = false;
         lightRange = 10;
@@ -58,29 +83,11 @@ public class Player : MonoBehaviour
         Collider[] collisions = Physics.OverlapCapsule(groundCheckTransform.position, groundCheckTransform.position - new Vector3(0, groundCheckDistance, 0), characterRadius, groundMask);
         isGrounded = collisions.Length > 0;
 
-        //simple movements
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.S) && !pulling)
-        {
-            transform.Translate(-1 * Vector3.forward * Time.deltaTime * speed);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0, -1, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0, 1, 0);
-        }
-        //jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            if (transform.position.y <= 1.6f) { rb.AddForce(jump, ForceMode.Impulse); }
-            PlayerJumpSound();
-        }
+        // Get inputs
+        inputX = Input.GetAxisRaw("Horizontal");
+        inputY = Input.GetAxisRaw("Vertical");
+        if (Input.GetKeyDown(KeyCode.Space))
+            jump = true;
 
         //controlling light just to test out, will have game logic incorporated later
         if (Input.GetKey(KeyCode.UpArrow) && lightRange<500)
@@ -97,18 +104,91 @@ public class Player : MonoBehaviour
         // Kill the player if they fall too far down
         if (transform.position.y <= deathY)
             KillPlayer();
+
+        // Check if the player can grab an object
+        Collider[] armCollisions = Physics.OverlapBox(playerArm.position, playerArm.localScale / 2f, playerArm.rotation);
+        foreach (Collider collider in armCollisions)
+        {
+            if (collider.gameObject.CompareTag("Pushable"))
+            {
+                PullBlock(collider.gameObject);
+                break;
+            }
+        }
+
+        // Check if player let go of object
+        if (Input.GetKeyUp(KeyCode.E) && pulling)
+        {
+            pulling = false;
+            grabbedObject.transform.parent = null;
+            grabbedObject = null;
+        }
+
+        // Rotate Player
+        if (!pulling)
+        {
+            if (inputX > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+                grabDirection = 0;
+            }
+            else if (inputX < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, -90, 0);
+                grabDirection = 2;
+            }
+            else if (inputY > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                grabDirection = 1;
+            }
+            else if (inputY < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                grabDirection = 3;
+            }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 vel = rb.velocity;
+
+        //simple movements
+        vel.x = inputX * speed;
+        vel.z = inputY * speed;
+
+        //jump
+        if (jump && isGrounded && !pulling)
+        {
+            vel.y = jumpForce;
+            PlayerJumpSound();
+            jump = false;
+        }
+
+        if (pulling)
+        {
+            if (grabDirection == 0 || grabDirection == 2)
+                vel.z = 0;
+            else if (grabDirection == 1 || grabDirection == 3)
+                vel.x = 0;
+
+            Rigidbody grabbedRb = grabbedObject.GetComponent<Rigidbody>();
+            grabbedRb.velocity = new Vector3(vel.x, 0, vel.z);
+
+        }
+
+        rb.velocity = vel;
     }
 
     //function called by arm when in contact with block you can pull
-    public void PullBlock(GameObject block) {
-
-        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.H))
+    public void PullBlock(GameObject block)
+    {
+        if (Input.GetKeyDown(KeyCode.E) && !pulling)
         {
             pulling = true;
-            block.GetComponent<Rigidbody>().velocity = transform.forward * -1 * speed;
-        }
-        else {
-            pulling = false;
+            grabbedObject = block;
+            block.transform.parent = transform;
         }
     }
     
