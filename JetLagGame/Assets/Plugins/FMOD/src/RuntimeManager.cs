@@ -581,6 +581,10 @@ retry:
 
                 studioSystem.update();
             }
+            
+            // #if UNITY_EDITOR
+            // MuteAllEvents(UnityEditor.EditorUtility.audioMasterMute);
+            // #endif
         }
 
         public static void RegisterActiveEmitter(StudioEventEmitter emitter)

@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
     public AudioBusses audioBusses;
+    public Parameters parameters;
     public SFX sfx;
     public Music music;
 
@@ -30,6 +31,14 @@ public class AudioManager : MonoBehaviour
         public string masterBus;
         public string sfxBus;
         public string musicBus;
+    }
+    
+    [Serializable]
+    public class Parameters
+    {
+        [Header("Music Cues Parameters", order = 0)]
+        public string musicParameter;
+        public string[] musicParameterLabels;
     }
     
     [Serializable]

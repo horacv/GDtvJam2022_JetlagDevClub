@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject managerObject;
+    public AudioManager audioManager;
     Rigidbody rb;
     public float speed = 5;//speed
     public Vector3 jump;//force applied at jump
@@ -77,6 +78,7 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             if (transform.position.y <= 1.6f) { rb.AddForce(jump, ForceMode.Impulse); }
+            PlayerJumpSound();
         }
 
         //controlling light just to test out, will have game logic incorporated later
@@ -108,4 +110,8 @@ public class Player : MonoBehaviour
             pulling = false;
         }
     }
+    
+    //Audio Methods
+    private void PlayerJumpSound() => FMODUnity.RuntimeManager.PlayOneShot(audioManager.sfx.mainCharacter.jump, transform.position);
+    
 }

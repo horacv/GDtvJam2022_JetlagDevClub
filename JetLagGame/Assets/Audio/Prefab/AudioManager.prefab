@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8892864279013071440}
   - component: {fileID: 5532828147437674555}
+  - component: {fileID: -4675853456627789298}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -48,6 +49,12 @@ MonoBehaviour:
     masterBus: bus:/MASTER BUS
     sfxBus: bus:/MASTER BUS/SFX BUS
     musicBus: bus:/MASTER BUS/MUSIC BUS
+  parameters:
+    musicParameter: MusicCues
+    musicParameterLabels:
+    - Cue1
+    - Cue2
+    - Cue3
   sfx:
     mainCharacter:
       footsteps:
@@ -59,11 +66,11 @@ MonoBehaviour:
         Path: 
       jump:
         Guid:
-          Data1: 0
-          Data2: 0
-          Data3: 0
-          Data4: 0
-        Path: 
+          Data1: -2041054962
+          Data2: 1203069602
+          Data3: 1314777231
+          Data4: -1545146446
+        Path: event:/Play_PlayerJump
     interactables:
       boxDrag:
         Guid:
@@ -83,8 +90,21 @@ MonoBehaviour:
   music:
     music:
       Guid:
-        Data1: 0
-        Data2: 0
-        Data3: 0
-        Data4: 0
-      Path: 
+        Data1: -243734603
+        Data2: 1118257998
+        Data3: -1430082679
+        Data4: 1466698240
+      Path: event:/Play_Music
+--- !u!114 &-4675853456627789298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896479242677296501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7652c5464e0b14a80b5aae346b0ecad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager: {fileID: 5532828147437674555}
