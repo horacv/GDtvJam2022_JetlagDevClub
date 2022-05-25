@@ -1705,7 +1705,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36996
+  m_Name: pb_Mesh24456
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9374,7 +9374,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37148
+  m_Name: pb_Mesh24608
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16423,6 +16423,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 735997602615644182, guid: e99cffd2e2b6ea94d95c18fe04e75778, type: 3}
   m_PrefabInstance: {fileID: 1544874237}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1545609824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545609825}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1545609825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545609824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.49, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2015450957}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1548657710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20093,6 +20124,7 @@ Transform:
   - {fileID: 963194228}
   - {fileID: 933969682}
   - {fileID: 1922957808}
+  - {fileID: 1545609825}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -20116,6 +20148,12 @@ MonoBehaviour:
   light: {fileID: 1922957809}
   respawnTransform: {fileID: 1670061221}
   deathY: -50
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheckTransform: {fileID: 1545609825}
+  groundCheckDistance: 0.05
+  characterRadius: 0.5
 --- !u!54 &2015450959
 Rigidbody:
   m_ObjectHideFlags: 0

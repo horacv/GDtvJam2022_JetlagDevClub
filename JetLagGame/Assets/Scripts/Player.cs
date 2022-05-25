@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     private float lightRange;
     public Transform respawnTransform;
     public float deathY;
+    public LayerMask groundMask;
+    public Transform groundCheckTransform;
+    public float groundCheckDistance;
+    public float characterRadius;
     void Start()
     {
         managerObject = GameObject.FindWithTag("Manager");
@@ -27,14 +31,6 @@ public class Player : MonoBehaviour
         pbList = GameObject.FindGameObjectsWithTag("Pushable");
         pulling = false;
         lightRange = 10;
-    }
-
-    void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.layer == 3)
-        {
-            isGrounded = true;
-        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -56,6 +52,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Ground check
+        Ray ray = new Ray(groundCheckTransform.position, Vector3.down);
+        Debug.DrawRay(groundCheckTransform.position, -transform.up * groundCheckDistance, Color.yellow);
+        Collider[] collisions = Physics.OverlapCapsule(groundCheckTransform.position, groundCheckTransform.position - new Vector3(0, groundCheckDistance, 0), characterRadius, groundMask);
+        isGrounded = collisions.Length > 0;
+
         //simple movements
         if (Input.GetKey(KeyCode.W))
         {
@@ -76,7 +78,6 @@ public class Player : MonoBehaviour
         //jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            isGrounded = false;
             if (transform.position.y <= 1.6f) { rb.AddForce(jump, ForceMode.Impulse); }
             PlayerJumpSound();
         }
