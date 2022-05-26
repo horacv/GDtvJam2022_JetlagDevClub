@@ -42,7 +42,9 @@ public class Player : MonoBehaviour
     // Other Objects
     GameObject managerObject;
     AudioManager audioManager;
-
+    
+    private FMOD.Studio.EventInstance movingBlockInstance;
+    private bool isMovingBlockSound = false;
     void Start()
     {
         // Get Components
@@ -122,8 +124,11 @@ public class Player : MonoBehaviour
             pulling = false;
             grabbedObject.transform.parent = null;
             grabbedObject = null;
+            StopMovingBlockSound();
         }
 
+        MovingBlockSound();
+        
         // Rotate Player
         if (!pulling)
         {
@@ -191,8 +196,39 @@ public class Player : MonoBehaviour
             block.transform.parent = transform;
         }
     }
+
     
-    //Audio Methods
-    private void PlayerJumpSound() => FMODUnity.RuntimeManager.PlayOneShot(audioManager.sfx.mainCharacter.jump, transform.position);
+    #region AUDIO METHODS
+
+    void MovingBlockSound()
+    {
+        if (pulling && !isMovingBlockSound && rb.velocity.normalized.magnitude == 1)
+        {
+            PlayMovingBlockSound();
+        }
+        
+        if (isMovingBlockSound && rb.velocity.normalized.magnitude != 1)
+        {
+            StopMovingBlockSound();
+        }
+        
+        //Debug.Log(rb.velocity.normalized.magnitude);
+    }
+    void PlayerJumpSound() => FMODUnity.RuntimeManager.PlayOneShot(audioManager.sfx.mainCharacter.jump, transform.position);
     
+    void PlayMovingBlockSound()
+    {
+        movingBlockInstance = FMODUnity.RuntimeManager.CreateInstance(audioManager.sfx.interactables.movingBlocks);
+        movingBlockInstance.setParameterByNameWithLabel(audioManager.parameters.boxParameter, audioManager.parameters.boxLabels[0]);
+        movingBlockInstance.start();
+        movingBlockInstance.release(); 
+        isMovingBlockSound = true;
+    }
+
+    void StopMovingBlockSound()
+    {
+        movingBlockInstance.setParameterByNameWithLabel(audioManager.parameters.boxParameter, audioManager.parameters.boxLabels[1]);
+        isMovingBlockSound = false;
+    }
+    #endregion
 }

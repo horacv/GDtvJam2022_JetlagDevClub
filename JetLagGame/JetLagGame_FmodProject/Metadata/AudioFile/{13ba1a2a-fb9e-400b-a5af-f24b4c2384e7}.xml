@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{13ba1a2a-fb9e-400b-a5af-f24b4c2384e7}">
+		<property name="assetPath">
+			<value>SX/Amb/Lava/sx_amb_fire&amp;lava_Layer1_1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.4288124999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{67f31440-727c-4019-a5ab-4443c542fba8}</destination>
+		</relationship>
+	</object>
+</objects>

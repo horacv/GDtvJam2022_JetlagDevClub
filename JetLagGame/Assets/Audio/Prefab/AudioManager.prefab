@@ -50,11 +50,15 @@ MonoBehaviour:
     sfxBus: bus:/MASTER BUS/SFX BUS
     musicBus: bus:/MASTER BUS/MUSIC BUS
   parameters:
-    musicParameter: MusicCues
-    musicParameterLabels:
-    - Cue1
-    - Cue2
-    - Cue3
+    levelParameter: LevelNumber
+    levelParameterLabels:
+    - Level1
+    - Level2
+    - Level3
+    boxParameter: BoxMoving
+    boxLabels:
+    - BeginMove
+    - EndMove
   sfx:
     mainCharacter:
       footsteps:
@@ -72,21 +76,21 @@ MonoBehaviour:
           Data4: -1545146446
         Path: event:/Play_PlayerJump
     interactables:
-      boxDrag:
+      movingBlocks:
         Guid:
-          Data1: 0
-          Data2: 0
-          Data3: 0
-          Data4: 0
-        Path: 
+          Data1: -1760980646
+          Data2: 1243513682
+          Data3: -1177925730
+          Data4: -1469137670
+        Path: event:/SFX/Interactables/Play_MovingBlocks
     ambiance:
       ambiance:
         Guid:
-          Data1: 0
-          Data2: 0
-          Data3: 0
-          Data4: 0
-        Path: 
+          Data1: 468445745
+          Data2: 1228594511
+          Data3: 1482475191
+          Data4: -1570742473
+        Path: event:/SFX/Amb/Play_Ambiance
   music:
     music:
       Guid:
@@ -94,7 +98,7 @@ MonoBehaviour:
         Data2: 1118257998
         Data3: -1430082679
         Data4: 1466698240
-      Path: event:/Play_Music
+      Path: event:/Music/Play_Music
 --- !u!114 &-4675853456627789298
 MonoBehaviour:
   m_ObjectHideFlags: 0

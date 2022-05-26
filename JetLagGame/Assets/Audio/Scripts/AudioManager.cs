@@ -36,9 +36,14 @@ public class AudioManager : MonoBehaviour
     [Serializable]
     public class Parameters
     {
-        [Header("Music Cues Parameters", order = 0)]
-        public string musicParameter;
-        public string[] musicParameterLabels;
+        [Header("Level Parameters", order = 0)]
+        public string levelParameter;
+        public string[] levelParameterLabels;
+
+        [Header("Moving Blocks", order = 1)]
+        public string boxParameter;
+        public string[] boxLabels;
+
     }
     
     [Serializable]
@@ -58,7 +63,7 @@ public class AudioManager : MonoBehaviour
         [Serializable]
         public class Interactables
         {
-            public EventReference boxDrag;
+            public EventReference movingBlocks;
         }
         
         [Serializable]

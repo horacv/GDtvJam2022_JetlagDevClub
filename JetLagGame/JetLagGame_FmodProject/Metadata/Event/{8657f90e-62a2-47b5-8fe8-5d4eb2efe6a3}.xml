@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{8657f90e-62a2-47b5-8fe8-5d4eb2efe6a3}">
+		<property name="color">
+			<value>Yellow Light 1</value>
+		</property>
 		<property name="name">
 			<value>Play_PlayerJump</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{1add4a9b-ce17-4c60-9029-722dd5348412}</destination>
+			<destination>{308251f5-a8c5-4f8d-a7b8-21a823afc110}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{176257e7-bd7c-40d9-a481-efd8d5802c89}</destination>
@@ -59,7 +62,7 @@
 			<destination>{85ea50bf-24ee-4c47-992d-0a2a2a05fca8}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{c13a4422-269b-480a-aa49-0f7a5c1e498f}</destination>
+			<destination>{ed508005-c4db-4c3b-83be-ceb4aed68547}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{84d49a72-71d1-43a7-a7ee-4fab322f686b}" />
@@ -80,6 +83,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{6112238d-abc1-419a-b82d-724f9c03d430}">
+		<property name="volume">
+			<value>-6.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{6d81f50f-08cd-4ada-aae8-183ce75acbba}</destination>
 		</relationship>
@@ -118,11 +124,13 @@
 	<object class="MixerBusEffectChain" id="{6d81f50f-08cd-4ada-aae8-183ce75acbba}">
 		<relationship name="effects">
 			<destination>{93532ede-4d34-4329-bc6b-09c8a75545d8}</destination>
-			<destination>{1f807b14-ac02-4f4f-8450-53d02775a954}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2f319df9-5cf3-453c-bc55-14857b7b7916}" />
 	<object class="MultiSound" id="{af21d39f-5dd4-4014-b324-40302a7f79a3}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{66c0656c-3642-42da-bf3a-970052a26f4f}</destination>
 		</relationship>
@@ -140,7 +148,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{d94265cc-a68d-4c62-b3e4-3711472b8abf}" />
 	<object class="MixerBusFader" id="{93532ede-4d34-4329-bc6b-09c8a75545d8}" />
-	<object class="SpatialiserEffect" id="{1f807b14-ac02-4f4f-8450-53d02775a954}" />
 	<object class="RandomizerModulator" id="{66c0656c-3642-42da-bf3a-970052a26f4f}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>
