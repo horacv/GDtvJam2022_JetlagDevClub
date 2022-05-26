@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     [Header("Other Variables")]
     Vector3 blockObjDis = new Vector3(1.5f, 0.5f, 0);//distance between pushable block and game object centers
-    [SerializeField] Light light;//light emanating from character
+    [SerializeField] Light pLight;//light emanating from character
     public Transform respawnTransform;
     [SerializeField] float deathY;
 
@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
     private float inputY;
     private bool jump;
 
-    private float lightRange;
+    private float lightAngle;
+    private float lightHeight;
     private bool isGrounded;
     private bool pulling;
     [SerializeField] private GameObject grabbedObject;
@@ -57,7 +58,8 @@ public class Player : MonoBehaviour
         Physics.gravity = new Vector3(0, -30.0F, 0);
         pbList = GameObject.FindGameObjectsWithTag("Pushable");
         pulling = false;
-        lightRange = 10;
+        lightAngle = 30;
+        lightHeight = 8.5f;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -91,17 +93,19 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             jump = true;
 
-        //controlling light just to test out, will have game logic incorporated later
-        if (Input.GetKey(KeyCode.UpArrow) && lightRange<500)
+        // Controlling light just to test out, will have game logic incorporated later
+        if (Input.GetKey(KeyCode.Keypad0) && lightAngle < 90)
         {
-            lightRange = lightRange + 1;
+            lightAngle = lightAngle + 1;
         }
-        if (Input.GetKey(KeyCode.DownArrow) && lightRange>0)
+        if (Input.GetKey(KeyCode.Keypad1) && lightAngle > 0)
         {
-            lightRange = lightRange - 1;
+            lightAngle = lightAngle - 1;
         }
-
-        light.range = lightRange;
+        pLight.spotAngle = lightAngle;
+        
+        // Keep light height the same
+        pLight.transform.position = new Vector3(pLight.transform.position.x, lightHeight, pLight.transform.position.z);
 
         // Kill the player if they fall too far down
         if (transform.position.y <= deathY)
