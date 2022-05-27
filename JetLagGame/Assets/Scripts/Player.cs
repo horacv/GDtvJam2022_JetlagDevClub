@@ -16,12 +16,13 @@ public class Player : MonoBehaviour
 
     [Header("Grab")]
     [SerializeField] Transform playerArm;
+    [SerializeField] GameObject eDisplay;
+    [SerializeField] GameObject eDisplayChild;
 
     [Header("Other Variables")]
     Vector3 blockObjDis = new Vector3(1.5f, 0.5f, 0);//distance between pushable block and game object centers
     [SerializeField] Light pLight;//light emanating from character
     public Transform respawnTransform;
-    [SerializeField] float deathY;
 
     // Runtime Variables
     private float inputX;
@@ -71,7 +72,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void KillPlayer()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Spike"))
+        {
+            KillPlayer();
+        }
+    }
+
+        public void KillPlayer()
     {
         // Reset the player position to spawn location
         transform.position = respawnTransform.position;
@@ -107,16 +116,15 @@ public class Player : MonoBehaviour
         // Keep light height the same
         pLight.transform.position = new Vector3(pLight.transform.position.x, lightHeight, pLight.transform.position.z);
 
-        // Kill the player if they fall too far down
-        if (transform.position.y <= deathY)
-            KillPlayer();
-
         // Check if the player can grab an object
+        eDisplay.SetActive(false);
         Collider[] armCollisions = Physics.OverlapBox(playerArm.position, playerArm.localScale / 2f, playerArm.rotation);
         foreach (Collider collider in armCollisions)
         {
             if (collider.gameObject.CompareTag("Pushable"))
             {
+                eDisplay.SetActive(true);
+                eDisplayChild.transform.GetComponent<RectTransform>().rotation = Quaternion.Euler(90, 0, 0);
                 PullBlock(collider.gameObject);
                 break;
             }
