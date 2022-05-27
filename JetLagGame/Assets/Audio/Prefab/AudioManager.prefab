@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153d756a61b3a4684ac6a555560dc518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterBank: Master
+  masterStrings: Master.strings
   audioBusses:
     masterBus: bus:/MASTER BUS
     sfxBus: bus:/MASTER BUS/SFX BUS
