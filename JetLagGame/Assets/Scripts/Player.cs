@@ -180,7 +180,6 @@ public class Player : MonoBehaviour
         {
             vel.y = jumpForce;
             PlayerJumpSound();
-            jump = false;
         }
 
         if (pulling)
@@ -196,6 +195,8 @@ public class Player : MonoBehaviour
         }
 
         rb.velocity = vel;
+
+        jump = false;
     }
 
     //function called by arm when in contact with block you can pull
