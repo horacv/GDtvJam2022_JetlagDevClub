@@ -13,6 +13,10 @@ public class AudioManager : MonoBehaviour
     public SFX sfx;
     public Music music;
 
+    private void Awake()
+    {
+        
+    }
     void Start()
     {
         if (instance != null)
