@@ -1,9 +1,3 @@
-=== Trigger0 ====
-= Dialogue
-One day, you, the most pious Christian, declare that you do not fear Satan because your faith is as solid as ice. After this declaration, you find yourself in the hell's freezer. A trial of your sincerity, most likely...
-    + [OK]
-        -> END
-
 === Trigger1 ====
 = Dialogue
 Satan: Don't you, Christians, mind your manners? I was just about to indulge in some sinful souls. Get lost and don’t ruin my appetite.
@@ -29,87 +23,91 @@ You finally made it. I’ve been trying to renovate this damned pit for centurie
         -> END
         
 === Barks ====
+= Intro
+One day, you, the most pious Christian, declare that you do not fear Satan because your faith is as solid as ice. After this declaration, you find yourself in the hell's freezer. A trial of your sincerity, most likely...
+    + [OK]
+        -> Bark1
 = Bark1
-You're starting to amuse me.
+Satan: You're starting to amuse me.
     + [OK]
         -> Bark2
 = Bark2
-What can be more gratifying than watching someone die endlessly?
+Satan: What can be more gratifying than watching someone die endlessly?
     + [OK]
         -> Bark3
 = Bark3
-What's this feeling that's tugging at my heartstrings? Despair? So weird. Never thought I had a heart to begin with.
+Satan: What's this feeling that's tugging at my heartstrings? Despair? So weird. Never thought I had a heart to begin with.
     + [OK]
         -> Bark4
 = Bark4
-Never had a personal jester.
+Satan: Never had a personal jester.
     + [OK]
         -> Bark5
 = Bark5
-Even life in hell gets boring.
+Satan: Even life in hell gets boring.
     + [OK]
         -> Bark6
 = Bark6
-I see. You're taking your sweet time in hell.
+Satan: I see. You're taking your sweet time in hell.
     + [OK]
         -> Bark7
 = Bark7
-I keep forgetting how pathetic you, mortals, are. 
+Satan: I keep forgetting how pathetic you, mortals, are. 
     + [OK]
         -> Bark8
 = Bark8
-I'm starting to doubt that you really want to get out of hell.
+Satan: I'm starting to doubt that you really want to get out of hell.
     + [OK]
         -> Bark9
 = Bark9
-Take to your heels!
+Satan: Take to your heels!
     + [OK]
         -> Bark10
 = Bark10
-You're giving me a headache.
+Satan: You're giving me a headache.
     + [OK]
         -> Bark11
 = Bark11
-The whole situation would almost seem ridiculous, were it not so hellishly irritating.
+Satan: The whole situation would almost seem ridiculous, were it not so hellishly irritating.
     + [OK]
         -> Bark12
 = Bark12
-I can't believe it's you again.
+Satan: I can't believe it's you again.
     + [OK]
         -> Bark13
 = Bark13
-I should make a sign at the entrance: "No Christians allowed".
+Satan: I should make a sign at the entrance: "No Christians allowed".
     + [OK]
         -> Bark14
 = Bark14
-If I see you again, I'll order Cerberus to chase you out.
+Satan: If I see you again, I'll order Cerberus to chase you out.
     + [OK]
         -> Bark15
 = Bark15
-What can be more gratifying than watching someone die endlessly?
+Satan: What can be more gratifying than watching someone die endlessly?
     + [OK]
         -> Bark16
 = Bark16
-This story, no doubt, converts into an epic. 
+Satan: This story, no doubt, converts into an epic. 
     + [OK]
         -> Bark17
 = Bark17
-God must have forsaken you.
+Satan: God must have forsaken you.
     + [OK]
         -> Bark18
 = Bark18
-You've set your mind on staying here, haven't you?
+Satan: You've set your mind on staying here, haven't you?
     + [OK]
         -> Bark19
 = Bark19
-Maybe I should shut up and enjoy the show while it lasts.
+Satan: Maybe I should shut up and enjoy the show while it lasts.
     + [OK]
         -> Bark20
 = Bark20
-Suffering is the primary currency here. Death is the apex.
+Satan: Suffering is the primary currency here. Death is the apex.
     + [OK]
         -> Bark21
 = Bark21
-I've to admit that your perserverance is astounding. I applaud the amount of effort you put into staying in hell.
+Satan: I've to admit that your perserverance is astounding. I applaud the amount of effort you put into staying in hell.
     + [OK]
         -> END
