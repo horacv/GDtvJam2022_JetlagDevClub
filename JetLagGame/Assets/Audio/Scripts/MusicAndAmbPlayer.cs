@@ -8,8 +8,6 @@ public class MusicAndAmbPlayer : MonoBehaviour
     private FMOD.Studio.EventInstance musicEventInstance;
     private FMOD.Studio.EventInstance ambianceEventInstance;
     
-    private const string level1Name = "blockout_01"; 
-    
     void Start()
     {
         SetLevelState();
@@ -36,8 +34,8 @@ public class MusicAndAmbPlayer : MonoBehaviour
     {
         switch (SceneManager.GetActiveScene().name)
         {
-            case level1Name:
-                FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[0]);
+            case "blockout_01":
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[1]);
                 break;
         }
     }
