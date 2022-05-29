@@ -12,19 +12,27 @@ public class Manager : MonoBehaviour
     //General variables
     private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
     public GameObject player;
+    public Light sceneLight;
+    public Light spotLight;
+    public Light winLight;
+    private int score;
+    private int winScore=500;
+    public static bool ascending;
     //UI elements
     public GameObject blackBox;
     public GameObject barkBox;
     public GameObject dialogueBox;
     private CanvasGroup blackBoxCG;
-    public TextMeshProUGUI speakerDialogue;
+    public TextMeshProUGUI speakerDialogue;//dialogue at center of screen
+    public TextMeshProUGUI speakerDialogue2;//dialogue at bottom of screen
+    public TextMeshProUGUI scoreText;
+    private bool barkTriggered;//bark was triggered instead of being called automatically
     //Variables to hold coroutines
     private IEnumerator fadeInCR;
     private IEnumerator fadeOutCR;
     //Ink dialogue variables
     private Story currentStory;
-    [Header("Ink json")]
-    [SerializeField] public TextAsset inkJSON;
+    public TextAsset inkJSON;
     private string convoName;
 
     private void Awake()
@@ -39,27 +47,35 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
+        //set lighting
+        sceneLight.enabled = true;
+        spotLight.enabled = false;
+        winLight.enabled = false;
         //set variables related to fading in and out
         blackBoxCG = blackBox.GetComponent<CanvasGroup>();
         blackBoxCG.alpha = 1;
         fadeOutCR = FadeOut();
+        dialogueBox.SetActive(false);
+        barkTriggered = false;
         //set dialogue variables
         convoName = "Intro";
         currentStory = new Story(inkJSON.text);
         currentStory.ChoosePathString(convoName);
-        ContinueStory();
+        speakerDialogue.text = currentStory.Continue();
+        //set game variables
+        score = 1000;
+        ascending = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-    }
-
-    public void ContinueStory()
-    {
-        if (currentStory.canContinue)
-        {
-            speakerDialogue.text = currentStory.Continue();
+        scoreText.text = "Score: " + score;
+        if (ascending) {
+            player.transform.position += new Vector3(0, 5*Time.deltaTime, 0);
+        }
+        if (player.transform.position.y > 20) {
+            Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 
@@ -71,16 +87,68 @@ public class Manager : MonoBehaviour
     }
 
     public void PlayerDeath(int n) {
+        if (score > 0) { 
+            score = score - 100;
+        }
+        
         StopCoroutine(fadeInCR);
         //load next bark
-        convoName=String.Concat("Bark", n-1);
+        if (!barkTriggered) { convoName = String.Concat("Bark", n); }
         currentStory.ChoosePathString(convoName);
-        ContinueStory();
+        speakerDialogue.text = currentStory.Continue();
+        barkTriggered = false;
         //fade to black
         fadeOutCR = FadeOut();
         StartCoroutine(fadeOutCR);
     }
 
+    public void DialogueTriggered(string s) {
+        if (s == "Trigger1")
+        {
+            Player.canMove = false;
+            currentStory.ChoosePathString(s);
+            speakerDialogue2.text = currentStory.Continue();
+            dialogueBox.SetActive(true);
+        }
+        else if (s == "Trigger2")
+        {
+            barkTriggered = true;
+            convoName = s;
+            score = score + 100;
+            player.GetComponent<Player>().jumpForce = 15;
+        }
+        else if (s == "Trigger3")
+        {
+            barkTriggered = true;
+            convoName = s;
+            player.GetComponent<Player>().lightAngle = 90;
+        }
+        else if (s == "LightOn")
+        {
+            sceneLight.enabled = true;
+            spotLight.enabled = false;
+        }
+        else if (s == "LightOff") {
+            sceneLight.enabled = false;
+            spotLight.enabled = true;
+        }
+        else if (s == "Trigger4")
+        {
+            Player.canMove = false;
+            if (score >= winScore) {
+                currentStory.ChoosePathString("Trigger4W");
+                winLight.enabled = true;
+            }
+            else { currentStory.ChoosePathString("Trigger4L"); }
+            speakerDialogue2.text = currentStory.Continue();
+            dialogueBox.SetActive(true);
+        }
+    }
+
+    public void DialogueClosed() {
+        Player.canMove = true;
+        dialogueBox.SetActive(false);
+    }
     //Coroutines that fade scene in and out
     private IEnumerator FadeIn()
     {
@@ -102,5 +170,6 @@ public class Manager : MonoBehaviour
         }
         player.GetComponent<Player>().ResetPlayer();
         barkBox.SetActive(true);
+        
     }
 }

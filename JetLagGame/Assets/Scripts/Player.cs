@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] float speed = 5;
-    [SerializeField] float jumpForce;
+    [SerializeField] public float jumpForce;
 
     [Header("Ground Check")]
     [SerializeField] LayerMask groundMask;
@@ -22,20 +22,23 @@ public class Player : MonoBehaviour
     [Header("Other Variables")]
     [SerializeField] Light pLight;//light emanating from character
     public Transform respawnTransform;
+    private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
 
     // Runtime Variables
     private float inputX;
     private float inputY;
     private bool jump;
 
-    private float lightAngle;
+    public float lightAngle;
     private float lightHeight;
     private bool isGrounded;
     private bool pulling;
     [SerializeField] private GameObject grabbedObject;
     private int grabDirection;
 
-    private int deathNum;
+    [SerializeField] private int deathNum;
+    public static bool canMove;
+    private bool firstHit;
 
     // Components
     Rigidbody rb;
@@ -50,41 +53,57 @@ public class Player : MonoBehaviour
     {
         // Get Components
         rb = GetComponent<Rigidbody>();
-
         // Get Objects
         managerObject = GameObject.FindWithTag("Manager");
         audioManager = FindObjectOfType<AudioManager>();
 
         Physics.gravity = new Vector3(0, -30.0F, 0);
         pulling = false;
-        lightAngle = 30;
+        lightAngle = 50;
         lightHeight = 8.5f;
 
         deathNum = 0;
+        canMove = true;
+        firstHit = true;
     }
 
     void OnCollisionEnter(Collision collision)
     {
         // Check if the player hit a spike
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Spike"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Spike") && firstHit)
         {
+            firstHit = false;
             KillPlayer();
+        }
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Goal"))
+        {
+            rb.useGravity = false;
+            Manager.ascending = true;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Spike"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Spike") && firstHit)
         {
+            firstHit = false;
             KillPlayer();
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Trigger"))
+        {
+            managerObject.GetComponent<Manager>().DialogueTriggered(other.gameObject.tag);
+            other.gameObject.SetActive(false);
         }
     }
 
     public void KillPlayer()
     {
-        if (deathNum < 21) {deathNum += 1;}
-
-        managerObject.GetComponent<Manager>().PlayerDeath(deathNum);
+        if (deathNum < 21) {deathNum += 1;} 
+        managerObject.GetComponent<Manager>().PlayerDeath(deathNum-1);
     }
 
     public void ResetPlayer() {
@@ -92,7 +111,7 @@ public class Player : MonoBehaviour
         transform.position = respawnTransform.position;
         transform.rotation = respawnTransform.rotation;
         rb.velocity = Vector3.zero;
-
+        firstHit = true;
     }
     void Update()
     {
@@ -108,15 +127,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             jump = true;
 
-        // Controlling light just to test out, will have game logic incorporated later
-        if (Input.GetKey(KeyCode.Keypad0) && lightAngle < 90)
-        {
-            lightAngle = lightAngle + 1;
-        }
-        if (Input.GetKey(KeyCode.Keypad1) && lightAngle > 0)
-        {
-            lightAngle = lightAngle - 1;
-        }
         pLight.spotAngle = lightAngle;
         
         // Keep light height the same
@@ -178,8 +188,11 @@ public class Player : MonoBehaviour
         Vector3 vel = rb.velocity;
 
         //simple movements
-        vel.x = inputX * speed;
-        vel.z = inputY * speed;
+        if (canMove) {
+            vel.x = inputX * speed;
+            vel.z = inputY * speed; 
+        }
+        
 
         //jump
         if (jump && isGrounded && !pulling)
@@ -249,5 +262,6 @@ public class Player : MonoBehaviour
         movingBlockInstance.setParameterByNameWithLabel(audioManager.parameters.boxParameter, audioManager.parameters.boxLabels[1]);
         isMovingBlockSound = false;
     }
+
     #endregion
 }

@@ -17,7 +17,11 @@ Satan: My, my, how pitiful! The light of your faith is so weak it can't even gui
 === Trigger4W ====
 You finally made it. I’ve been trying to renovate this damned pit for centuries. Corruption everywhere. It's delightful that my servants managed to at least build this portal. I won't need to suffer watching how you climb up the stairs.
         -> END
-        
+
+=== Trigger4L ====
+I'd clap my hands, but, alas, you're now knee deep in debt. Your soul belongs to me.
+        -> END
+
 === Bark0 ====
 Satan: You're starting to amuse me.
     -> END

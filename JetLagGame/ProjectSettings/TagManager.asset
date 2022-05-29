@@ -9,6 +9,12 @@ TagManager:
   - Obstacle
   - Pushable
   - Goal
+  - Trigger1
+  - Trigger2
+  - Trigger3
+  - LightOff
+  - LightOn
+  - Trigger4
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - UI
   - Spike
   - E Box
-  - 
+  - Trigger
   - 
   - 
   - 
