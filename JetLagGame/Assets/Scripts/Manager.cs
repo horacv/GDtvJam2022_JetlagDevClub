@@ -11,13 +11,14 @@ public class Manager : MonoBehaviour
     public static Manager instance;
     //General variables
     private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
+    public GameObject player;
     //UI elements
     public GameObject blackBox;
+    public GameObject barkBox;
+    public GameObject dialogueBox;
     private CanvasGroup blackBoxCG;
-    private bool black = true;
     public TextMeshProUGUI speakerDialogue;
-
-    //Coroutines
+    //Variables to hold coroutines
     private IEnumerator fadeInCR;
     private IEnumerator fadeOutCR;
     //Ink dialogue variables
@@ -41,11 +42,9 @@ public class Manager : MonoBehaviour
         //set variables related to fading in and out
         blackBoxCG = blackBox.GetComponent<CanvasGroup>();
         blackBoxCG.alpha = 1;
-        fadeInCR = FadeIn();
         fadeOutCR = FadeOut();
-        black = true;
         //set dialogue variables
-        convoName = "Barks";
+        convoName = "Intro";
         currentStory = new Story(inkJSON.text);
         currentStory.ChoosePathString(convoName);
         ContinueStory();
@@ -54,7 +53,6 @@ public class Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!black){StopCoroutine(fadeInCR);}
     }
 
     public void ContinueStory()
@@ -62,34 +60,47 @@ public class Manager : MonoBehaviour
         if (currentStory.canContinue)
         {
             speakerDialogue.text = currentStory.Continue();
-
         }
     }
 
-    //Called at beginning/after death
+    //Called when player presses ok on black screen
     public void StartLoop() {
+        StopCoroutine(fadeOutCR);
+        fadeInCR = FadeIn();
         StartCoroutine(fadeInCR);
+    }
+
+    public void PlayerDeath(int n) {
+        StopCoroutine(fadeInCR);
+        //load next bark
+        convoName=String.Concat("Bark", n-1);
+        currentStory.ChoosePathString(convoName);
+        ContinueStory();
+        //fade to black
+        fadeOutCR = FadeOut();
+        StartCoroutine(fadeOutCR);
     }
 
     //Coroutines that fade scene in and out
     private IEnumerator FadeIn()
     {
-        while (blackBoxCG.alpha >= 0)
+        barkBox.SetActive(false);
+        while (blackBoxCG.alpha > 0)
         {
             yield return waitForFixedUpdate;
-            blackBoxCG.alpha -= 0.3f * Time.deltaTime;
+            blackBoxCG.alpha -= 0.5f * Time.deltaTime;
         }
-        black = false;
     }
 
     //coroutine that fades scene out
     private IEnumerator FadeOut()
     {
-        while (blackBoxCG.alpha <= 1)
+        while (blackBoxCG.alpha < 1)
         {
             yield return waitForFixedUpdate;
-            blackBoxCG.alpha += 0.3f * Time.deltaTime;
+            blackBoxCG.alpha += 0.5f * Time.deltaTime;
         }
-        black = true;
+        player.GetComponent<Player>().ResetPlayer();
+        barkBox.SetActive(true);
     }
 }

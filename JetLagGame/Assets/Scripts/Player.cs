@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject eDisplayChild;
 
     [Header("Other Variables")]
-    Vector3 blockObjDis = new Vector3(1.5f, 0.5f, 0);//distance between pushable block and game object centers
     [SerializeField] Light pLight;//light emanating from character
     public Transform respawnTransform;
 
@@ -36,7 +35,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject grabbedObject;
     private int grabDirection;
 
-    private GameObject[] pbList;//list that will hold pushable blocks in scene
+    private int deathNum;
 
     // Components
     Rigidbody rb;
@@ -57,10 +56,11 @@ public class Player : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
 
         Physics.gravity = new Vector3(0, -30.0F, 0);
-        pbList = GameObject.FindGameObjectsWithTag("Pushable");
         pulling = false;
         lightAngle = 30;
         lightHeight = 8.5f;
+
+        deathNum = 0;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -80,14 +80,20 @@ public class Player : MonoBehaviour
         }
     }
 
-        public void KillPlayer()
+    public void KillPlayer()
     {
+        if (deathNum < 21) {deathNum += 1;}
+
+        managerObject.GetComponent<Manager>().PlayerDeath(deathNum);
+    }
+
+    public void ResetPlayer() {
         // Reset the player position to spawn location
         transform.position = respawnTransform.position;
         transform.rotation = respawnTransform.rotation;
         rb.velocity = Vector3.zero;
-    }
 
+    }
     void Update()
     {
         // Ground check
