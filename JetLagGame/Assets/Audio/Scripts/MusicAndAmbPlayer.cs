@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
@@ -7,10 +8,20 @@ public class MusicAndAmbPlayer : MonoBehaviour
     private AudioManager audioManager;
     private FMOD.Studio.EventInstance musicEventInstance;
     private FMOD.Studio.EventInstance ambianceEventInstance;
-    
+    private static MusicAndAmbPlayer instance;
+
     void Start()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        
         SetLevelState();
+        
         PlayMusic(); 
         PlayAmbiance();
     }
@@ -30,10 +41,17 @@ public class MusicAndAmbPlayer : MonoBehaviour
         ambianceEventInstance.release();
     }
 
+    private void Update()
+    {
+        SetLevelState();
+    }
     void SetLevelState()
     {
         switch (SceneManager.GetActiveScene().name)
         {
+            case "StartMenu":
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[0]);
+                break;
             case "blockout_01":
                 FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[1]);
                 break;

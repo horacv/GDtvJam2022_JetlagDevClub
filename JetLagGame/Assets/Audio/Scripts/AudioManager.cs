@@ -8,6 +8,9 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
+    [BankRef] public string masterBank;
+    [BankRef] public string stringsBank;
+    
     public AudioBusses audioBusses;
     public Parameters parameters;
     public SFX sfx;
@@ -15,8 +18,13 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        if (!RuntimeManager.HaveMasterBanksLoaded)
+        {
+            RuntimeManager.LoadBank(masterBank);
+            RuntimeManager.LoadBank(stringsBank);
+        }
     }
+    
     void Start()
     {
         if (instance != null)
