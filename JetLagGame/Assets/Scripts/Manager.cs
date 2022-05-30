@@ -32,6 +32,7 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI scoreText2;
     public TMP_InputField nameInput;
     public GameObject pauseMenu;
+    public GameObject gameOverMenu;
     private bool barkTriggered;//bark was triggered instead of being called automatically
     private bool lost;
     //Variables to hold coroutines
@@ -188,6 +189,11 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void GameOver()
+    {
+        gameOverMenu.SetActive(true);
+    }
+
     public void Continue()
     {
         pauseMenu.SetActive(false);
@@ -219,8 +225,16 @@ public class Manager : MonoBehaviour
             yield return waitForFixedUpdate;
             blackBoxCG.alpha += 0.5f * Time.deltaTime;
         }
-        player.GetComponent<Player>().ResetPlayer();
-        barkBox.SetActive(true);
+
+        if (score <= 0)
+        {
+            GameOver();
+        }
+        else
+        {
+            player.GetComponent<Player>().ResetPlayer();
+            barkBox.SetActive(true);
+        }
         
     }
 
