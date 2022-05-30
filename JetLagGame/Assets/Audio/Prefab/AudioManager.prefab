@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8892864279013071440}
   - component: {fileID: 5532828147437674555}
   - component: {fileID: -4675853456627789298}
-  - component: {fileID: -4660346201846331872}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -46,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153d756a61b3a4684ac6a555560dc518, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  masterBank: Master
+  stringsBank: Master.strings
   audioBusses:
     masterBus: bus:/MASTER BUS
     sfxBus: bus:/MASTER BUS/SFX BUS
@@ -128,22 +129,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 5532828147437674555}
---- !u!114 &-4660346201846331872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8896479242677296501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadEvent: 1
-  UnloadEvent: 2
-  Banks:
-  - Master
-  - Master.strings
-  CollisionTag: 
-  PreloadSamples: 0

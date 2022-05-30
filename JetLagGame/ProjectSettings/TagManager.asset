@@ -15,6 +15,10 @@ TagManager:
   - LightOff
   - LightOn
   - Trigger4
+  - Name
+  - Score
+  - ScoreManager
+  - StartButton
   layers:
   - Default
   - TransparentFX

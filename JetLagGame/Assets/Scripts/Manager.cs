@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class Manager : MonoBehaviour
 {
     //Singleton pattern
@@ -18,18 +19,24 @@ public class Manager : MonoBehaviour
     public static int score;
     public static int winScore=500;
     public static bool ascending;
+    public GameObject scoreManager;
     //UI elements
     public GameObject blackBox;
     public GameObject barkBox;
     public GameObject dialogueBox;
+    public GameObject saveBox;
     private CanvasGroup blackBoxCG;
     public TextMeshProUGUI speakerDialogue;//dialogue at center of screen
     public TextMeshProUGUI speakerDialogue2;//dialogue at bottom of screen
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText2;
+    public TMP_InputField nameInput;
     private bool barkTriggered;//bark was triggered instead of being called automatically
+    private bool lost;
     //Variables to hold coroutines
     private IEnumerator fadeInCR;
     private IEnumerator fadeOutCR;
+    private IEnumerator fadeOutLastCR;
     //Ink dialogue variables
     private Story currentStory;
     public TextAsset inkJSON;
@@ -47,6 +54,7 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
+        scoreManager = GameObject.FindGameObjectWithTag("ScoreManager");
         //set lighting
         sceneLight.enabled = true;
         spotLight.enabled = false;
@@ -55,7 +63,9 @@ public class Manager : MonoBehaviour
         blackBoxCG = blackBox.GetComponent<CanvasGroup>();
         blackBoxCG.alpha = 1;
         fadeOutCR = FadeOut();
+        fadeOutLastCR = FadeOutLast();
         dialogueBox.SetActive(false);
+        saveBox.SetActive(false);
         barkTriggered = false;
         //set dialogue variables
         convoName = "Intro";
@@ -65,17 +75,15 @@ public class Manager : MonoBehaviour
         //set game variables
         score = 1000;
         ascending = false;
+        lost = false;
     }
 
     void Update()
     {
         scoreText.text = "Score: " + score;
+        scoreText2.text = "Your score: " + score;
         if (ascending) {
             player.transform.position += new Vector3(0, 5*Time.deltaTime, 0);
-        }
-        if (player.transform.position.y > 20) {
-            Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
         }
     }
 
@@ -139,15 +147,31 @@ public class Manager : MonoBehaviour
                 currentStory.ChoosePathString("Trigger4W");
                 winLight.enabled = true;
             }
-            else { currentStory.ChoosePathString("Trigger4L"); }
+            else { currentStory.ChoosePathString("Trigger4L");lost = true; }
             speakerDialogue2.text = currentStory.Continue();
             dialogueBox.SetActive(true);
+            
         }
     }
 
     public void DialogueClosed() {
         Player.canMove = true;
         dialogueBox.SetActive(false);
+        if (lost) {
+            EndGame();
+        }
+    }
+
+    public void EndGame() {
+        StopCoroutine(fadeInCR);
+        StartCoroutine(fadeOutLastCR);
+    }
+    public void SaveResults() {
+        scoreManager.GetComponent<ScoreManager>().scores.Add(score);
+        if (nameInput.text == "") { scoreManager.GetComponent<ScoreManager>().names.Add("Anon"); }
+        else { scoreManager.GetComponent<ScoreManager>().names.Add(nameInput.text);}
+        
+        SceneManager.LoadScene(1);
     }
     //Coroutines that fade scene in and out
     private IEnumerator FadeIn()
@@ -171,5 +195,18 @@ public class Manager : MonoBehaviour
         player.GetComponent<Player>().ResetPlayer();
         barkBox.SetActive(true);
         
+    }
+
+    private IEnumerator FadeOutLast()
+    {
+        while (blackBoxCG.alpha < 1)
+        {
+            yield return waitForFixedUpdate;
+            //no idea why this is necessary but it eez what it eez
+            if (lost) { blackBoxCG.alpha += 0.5f * Time.deltaTime; }
+            else { blackBoxCG.alpha += 0.1f * Time.deltaTime; }
+            
+        }
+        saveBox.SetActive(true);
     }
 }
