@@ -163,7 +163,7 @@ public class Manager : MonoBehaviour
     public void SaveResults() {
         scoreManager.GetComponent<ScoreManager>().scores.Add(score);
         scoreManager.GetComponent<ScoreManager>().names.Add(nameInput.text);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     //Coroutines that fade scene in and out
     private IEnumerator FadeIn()

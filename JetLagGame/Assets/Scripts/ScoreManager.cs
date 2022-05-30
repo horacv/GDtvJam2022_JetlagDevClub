@@ -47,17 +47,18 @@ public class ScoreManager : MonoBehaviour
         nameTexts = GameObject.FindGameObjectsWithTag("Name");
         manager = GameObject.FindGameObjectWithTag("Manager");
         startButton= GameObject.FindGameObjectWithTag("StartButton");
+        /*
         if (startButton != null) {
             startButton.GetComponent<Button>().onClick.AddListener(StartGame);
-        }
+        }*/
         //sort scores
-        if (SceneManager.GetActiveScene().buildIndex == 2 && scores.Count!=0) {
+        if (SceneManager.GetActiveScene().buildIndex == 1 && scores.Count!=0) {
             nameTexts[0].GetComponent<TextMeshProUGUI>().text = "" + names[0];
             scoreTexts[0].GetComponent<TextMeshProUGUI>().text= ""+scores[0];
         }
     }
 
     public void StartGame() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
