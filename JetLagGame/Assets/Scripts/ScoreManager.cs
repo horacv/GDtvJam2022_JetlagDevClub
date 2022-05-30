@@ -14,6 +14,8 @@ public class ScoreManager : MonoBehaviour
     //values
     public List<int> scores = new List<int>();
     public List<string> names = new List<string>();
+    public List<int> maxScores = new List<int>();
+    public List<int> oldIndices = new List<int>();
 
     //UI elements that show those values
     public GameObject[] scoreTexts;
@@ -35,30 +37,48 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
-    {
+    {   
         scoreTexts = GameObject.FindGameObjectsWithTag("Score");
         nameTexts = GameObject.FindGameObjectsWithTag("Name");
-        manager = GameObject.FindGameObjectWithTag("Manager");
-        startButton= GameObject.FindGameObjectWithTag("StartButton");
-        /*
-        if (startButton != null) {
-            startButton.GetComponent<Button>().onClick.AddListener(StartGame);
-        }*/
-        //sort scores
-        if (SceneManager.GetActiveScene().buildIndex == 1 && scores.Count!=0) {
-            nameTexts[0].GetComponent<TextMeshProUGUI>().text = "" + names[0];
-            scoreTexts[0].GetComponent<TextMeshProUGUI>().text= ""+scores[0];
+        if (SceneManager.GetActiveScene().buildIndex == 1 && scores.Count != 0)
+        {
+            SortList();
+            for (int i = 0; i < 5; i++)
+            {
+                if (scores.Count > i)
+                {
+                    nameTexts[i].GetComponent<TextMeshProUGUI>().text = names[oldIndices[i]];
+                    scoreTexts[i].GetComponent<TextMeshProUGUI>().text = "" + maxScores[i];
+                }
+            }
         }
     }
 
-    public void StartGame() {
-        SceneManager.LoadScene(1);
+    void SortList()
+    {
+        maxScores = new List<int>();
+        oldIndices = new List<int>();
+        int maxIndex = -1;
+        for (int j = 0; j < scores.Count; j++)
+        {
+            //loop through scores
+            int max = 0;
+            //find max value and store location on scores list
+            for (int i = 0; i < scores.Count; i++)
+            {
+                if (scores[i] > max && !oldIndices.Contains(i))
+                {
+                    max = scores[i];
+                    maxIndex = i;
+                }
+            }
+            //add the max value to max list
+            maxScores.Add(max);
+            //add the max location to index list
+            //this will be used to locate the player's name from the names list
+            oldIndices.Add(maxIndex);
+        }//repeat for the number of elements in list
     }
 }

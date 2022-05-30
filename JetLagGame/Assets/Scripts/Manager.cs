@@ -32,6 +32,7 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI scoreText2;
     public TMP_InputField nameInput;
     private bool barkTriggered;//bark was triggered instead of being called automatically
+    private bool lost;
     //Variables to hold coroutines
     private IEnumerator fadeInCR;
     private IEnumerator fadeOutCR;
@@ -74,6 +75,7 @@ public class Manager : MonoBehaviour
         //set game variables
         score = 1000;
         ascending = false;
+        lost = false;
     }
 
     void Update()
@@ -145,15 +147,19 @@ public class Manager : MonoBehaviour
                 currentStory.ChoosePathString("Trigger4W");
                 winLight.enabled = true;
             }
-            else { currentStory.ChoosePathString("Trigger4L"); }
+            else { currentStory.ChoosePathString("Trigger4L");lost = true; }
             speakerDialogue2.text = currentStory.Continue();
             dialogueBox.SetActive(true);
+            
         }
     }
 
     public void DialogueClosed() {
         Player.canMove = true;
         dialogueBox.SetActive(false);
+        if (lost) {
+            EndGame();
+        }
     }
 
     public void EndGame() {
@@ -162,7 +168,9 @@ public class Manager : MonoBehaviour
     }
     public void SaveResults() {
         scoreManager.GetComponent<ScoreManager>().scores.Add(score);
-        scoreManager.GetComponent<ScoreManager>().names.Add(nameInput.text);
+        if (nameInput.text == "") { scoreManager.GetComponent<ScoreManager>().names.Add("Anon"); }
+        else { scoreManager.GetComponent<ScoreManager>().names.Add(nameInput.text);}
+        
         SceneManager.LoadScene(1);
     }
     //Coroutines that fade scene in and out
@@ -194,7 +202,10 @@ public class Manager : MonoBehaviour
         while (blackBoxCG.alpha < 1)
         {
             yield return waitForFixedUpdate;
-            blackBoxCG.alpha += 0.05f * Time.deltaTime;
+            //no idea why this is necessary but it eez what it eez
+            if (lost) { blackBoxCG.alpha += 0.5f * Time.deltaTime; }
+            else { blackBoxCG.alpha += 0.1f * Time.deltaTime; }
+            
         }
         saveBox.SetActive(true);
     }
