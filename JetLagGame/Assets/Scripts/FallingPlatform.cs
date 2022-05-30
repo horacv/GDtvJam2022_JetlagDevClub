@@ -9,7 +9,8 @@ public class FallingPlatform : MonoBehaviour
     [SerializeField] float shakeAmount;
     [SerializeField] bool respawn;
     [SerializeField] float respawnTime;
-
+    [SerializeField] AudioManager audioManager;
+    
     Vector3 originalPosition;
 
     float timeUntilFall = 0;
@@ -36,6 +37,7 @@ public class FallingPlatform : MonoBehaviour
             Debug.Log("Colliding with player");
             timeUntilFall = stayTime;
             falling = true;
+            PlayFallingPlatformSound();
         }
     }
 
@@ -79,5 +81,14 @@ public class FallingPlatform : MonoBehaviour
                 transform.position = originalPosition;
             }
         }
+    }
+
+    void PlayFallingPlatformSound()
+    {
+        FMOD.Studio.EventInstance eventInstance;
+        eventInstance = FMODUnity.RuntimeManager.CreateInstance(audioManager.sfx.interactables.fallingPlatforms);
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(eventInstance, GetComponent<Transform>());
+        eventInstance.start();
+        eventInstance.release();
     }
 }

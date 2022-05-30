@@ -62,12 +62,14 @@ public class AudioManager : MonoBehaviour
         {
             public EventReference footsteps;
             public EventReference jump;
+            public EventReference scream;
         }
 
         [Serializable]
         public class Interactables
         {
             public EventReference movingBlocks;
+            public EventReference fallingPlatforms;
         }
         
         [Serializable]

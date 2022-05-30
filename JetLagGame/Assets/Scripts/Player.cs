@@ -104,6 +104,7 @@ public class Player : MonoBehaviour
     {
         if (deathNum < 21) {deathNum += 1;} 
         managerObject.GetComponent<Manager>().PlayerDeath(deathNum-1);
+        PlayPlayerScream();
     }
 
     public void ResetPlayer() {
@@ -232,6 +233,11 @@ public class Player : MonoBehaviour
     
     #region AUDIO METHODS
 
+    void PlayPlayerScream()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(audioManager.sfx.mainCharacter.scream, transform.position);
+    }
+    
     void MovingBlockSound()
     {
         if (pulling && !isMovingBlockSound && rb.velocity.normalized.magnitude == 1)

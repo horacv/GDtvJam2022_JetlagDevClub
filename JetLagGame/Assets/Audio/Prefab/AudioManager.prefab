@@ -55,6 +55,8 @@ MonoBehaviour:
     levelParameterLabels:
     - MainMenu
     - Level1
+    - Victory
+    - Defeat
     boxParameter: BoxMoving
     boxLabels:
     - BeginMove
@@ -75,6 +77,13 @@ MonoBehaviour:
           Data3: 1314777231
           Data4: -1545146446
         Path: event:/Play_PlayerJump
+      scream:
+        Guid:
+          Data1: -1339157076
+          Data2: 1125180134
+          Data3: 795617969
+          Data4: 1948736978
+        Path: event:/SFX/Player/Play_PlayerScream
     interactables:
       movingBlocks:
         Guid:
@@ -83,6 +92,13 @@ MonoBehaviour:
           Data3: -1177925730
           Data4: -1469137670
         Path: event:/SFX/Interactables/Play_MovingBlocks
+      fallingPlatforms:
+        Guid:
+          Data1: 1984585664
+          Data2: 1187499556
+          Data3: -245600875
+          Data4: 1404091344
+        Path: event:/SFX/Interactables/Play_Platforms
     ambiance:
       ambiance:
         Guid:

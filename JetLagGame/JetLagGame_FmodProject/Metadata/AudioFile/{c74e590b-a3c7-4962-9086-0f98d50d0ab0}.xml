@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{c74e590b-a3c7-4962-9086-0f98d50d0ab0}">
 		<property name="assetPath">
-			<value>jetlaggame_startmenu_120bpm.wav</value>
+			<value>Music/jetlaggame_startmenu_120bpm.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{b37169bb-4daf-41dc-b079-0abf9b559fa8}">
 		<property name="assetPath">
-			<value>Interactables/PushClayBoxStart.ogg</value>
+			<value>SX/Interactables/PushClayBoxStart.ogg</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>

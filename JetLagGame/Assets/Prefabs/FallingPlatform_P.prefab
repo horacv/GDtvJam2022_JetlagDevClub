@@ -133,3 +133,4 @@ MonoBehaviour:
   shakeAmount: 50
   respawn: 1
   respawnTime: 3
+  audioManager: {fileID: 5532828147437674555, guid: ce0a8e7f53ecc4bdd9b10cac03183f31, type: 3}
