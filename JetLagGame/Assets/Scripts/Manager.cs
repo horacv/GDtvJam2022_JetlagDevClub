@@ -191,6 +191,7 @@ public class Manager : MonoBehaviour
 
     public void GameOver()
     {
+        musicAndAmbPlayer.SetLoseAudio();
         gameOverMenu.SetActive(true);
     }
 
