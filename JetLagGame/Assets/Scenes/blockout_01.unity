@@ -186,7 +186,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1482
+  m_Name: pb_Mesh-2172
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -481,6 +481,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (6)
@@ -949,7 +957,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24702
+  m_Name: pb_Mesh25394
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1113,7 +1121,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25026
+  m_Name: pb_Mesh25742
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1288,6 +1296,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (16)
@@ -4634,7 +4650,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1960
+  m_Name: pb_Mesh-2626
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5125,6 +5141,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (13)
@@ -5181,7 +5205,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2000
+  m_Name: pb_Mesh-2660
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5339,6 +5363,24 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &421401121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+  m_PrefabInstance: {fileID: 768436034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &421401125
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421401121}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05300638, y: 0.09013676, z: 0.29}
+  m_Center: {x: -0.0061533316, y: 0.045109738, z: 0.000000007450581}
 --- !u!1 &423497265
 GameObject:
   m_ObjectHideFlags: 0
@@ -5626,6 +5668,24 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &440755293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+  m_PrefabInstance: {fileID: 1778576463}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &440755297
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440755293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05300638, y: 0.09013676, z: 0.29}
+  m_Center: {x: -0.0061533316, y: 0.045109738, z: 0.000000007450581}
 --- !u!1001 &442529633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5692,6 +5752,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 735997602615644182, guid: e99cffd2e2b6ea94d95c18fe04e75778, type: 3}
   m_PrefabInstance: {fileID: 1915572311}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &448990159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+  m_PrefabInstance: {fileID: 1544057707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &448990163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448990159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05300638, y: 0.09013676, z: 0.29}
+  m_Center: {x: -0.0061533316, y: 0.045109738, z: 0.000000007450581}
 --- !u!1001 &459741353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5699,6 +5777,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (4)
@@ -5839,6 +5925,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (12)
@@ -5999,7 +6093,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24536
+  m_Name: pb_Mesh25222
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6561,6 +6655,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (15)
@@ -7844,6 +7946,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756526916 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+  m_PrefabInstance: {fileID: 1356354914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &756526920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756526916}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05300638, y: 0.09013676, z: 0.3}
+  m_Center: {x: -0.0061533316, y: 0.045109738, z: 0}
 --- !u!1001 &768436034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7910,6 +8030,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
       propertyPath: m_Name
       value: Checkpoint3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
@@ -8027,6 +8151,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (10)
@@ -8325,6 +8457,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (9)
@@ -8464,7 +8604,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24900
+  m_Name: pb_Mesh25604
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8968,6 +9108,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (14)
@@ -9025,6 +9173,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (8)
@@ -9290,6 +9446,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
       propertyPath: m_Name
       value: Checkpoint2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
@@ -9865,6 +10025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
 --- !u!4 &1141449930 stripped
@@ -10013,6 +10177,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (17)
@@ -10131,6 +10303,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (18)
@@ -10678,7 +10858,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24806
+  m_Name: pb_Mesh25514
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10843,6 +11023,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (7)
@@ -10900,6 +11088,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (19)
@@ -11125,7 +11321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 4.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -11162,6 +11358,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
       propertyPath: m_Name
       value: Checkpoint6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
@@ -11243,6 +11443,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (11)
@@ -11293,6 +11501,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+--- !u!1 &1389262259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+  m_PrefabInstance: {fileID: 1118943202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1389262263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389262259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05300638, y: 0.09013676, z: 0.29}
+  m_Center: {x: -0.0061533316, y: 0.045109738, z: 0}
 --- !u!1001 &1391097414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12365,6 +12591,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1444684391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+  m_PrefabInstance: {fileID: 1059865820}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1444684395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444684391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05300638, y: 0.09013676, z: 0.29}
+  m_Center: {x: -0.0061533316, y: 0.045109738, z: 0.000000007450581}
 --- !u!4 &1457067957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3310503516542685705, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
@@ -12852,7 +13096,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1292
+  m_Name: pb_Mesh-1982
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13367,6 +13611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
 --- !u!1 &1545609824
@@ -13421,7 +13669,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1632
+  m_Name: pb_Mesh-2310
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13680,6 +13928,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (5)
@@ -13881,7 +14137,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24664
+  m_Name: pb_Mesh25334
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14080,6 +14336,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (20)
@@ -14146,7 +14410,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1856
+  m_Name: pb_Mesh-2522
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -14792,6 +15056,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
       propertyPath: m_Name
       value: Checkpoint5
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36a02520263a5644c8500a5d8974cc0d, type: 3}
@@ -17191,7 +17459,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1988
+  m_Name: pb_Mesh-2648
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18013,6 +18281,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1603910228}
     m_Modifications:
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542257163850081267, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3310503516542685699, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
       propertyPath: m_Name
       value: FallingPlatform_P (2)
@@ -18529,6 +18805,7 @@ GameObject:
   - component: {fileID: 2015450958}
   - component: {fileID: 2015450959}
   - component: {fileID: 2015450960}
+  - component: {fileID: 2015450961}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -18629,7 +18906,6 @@ MonoBehaviour:
   eDisplay: {fileID: 42108139}
   eDisplayChild: {fileID: 1890443818}
   pLight: {fileID: 1922957809}
-  respawnTransform: {fileID: 1670061221}
   lightAngle: 0
   grabbedObject: {fileID: 0}
   deathNum: 0
@@ -18663,6 +18939,26 @@ CapsuleCollider:
   m_Height: 1.03
   m_Direction: 1
   m_Center: {x: -0.00094471895, y: 0.47545224, z: 0.0066594942}
+--- !u!114 &2015450961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015450953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f806691edf5f454bad81891436741b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoints:
+  - {fileID: 1389262259}
+  - {fileID: 1444684391}
+  - {fileID: 421401121}
+  - {fileID: 448990159}
+  - {fileID: 440755293}
+  - {fileID: 756526916}
+  currentCheckpoint: 0
 --- !u!1001 &2034200530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24712,7 +25008,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1448
+  m_Name: pb_Mesh-2138
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25051,7 +25347,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25052
+  m_Name: pb_Mesh25768
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

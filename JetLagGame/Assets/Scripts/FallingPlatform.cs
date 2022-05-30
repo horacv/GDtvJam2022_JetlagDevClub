@@ -17,6 +17,7 @@ public class FallingPlatform : MonoBehaviour
     float timeUntilRespawn = 0;
     bool falling = false;
     bool respawning = false;
+    float timeFallen = 0;
 
     Rigidbody rb;
 
@@ -50,6 +51,10 @@ public class FallingPlatform : MonoBehaviour
             {
                 // If it is falling, make the platform fall
                 rb.isKinematic = false;
+
+                timeUntilRespawn = respawnTime;
+                falling = false;
+                respawning = true;
             }
             else
             {
@@ -57,14 +62,6 @@ public class FallingPlatform : MonoBehaviour
                 timeUntilFall -= Time.deltaTime;
                 Vector3 targetPosition = originalPosition + new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
                 transform.position = Vector3.Lerp(originalPosition, targetPosition, shakeAmount * Time.deltaTime);
-            }
-
-            // If it has fallen a lot, start the respawn process
-            if (Mathf.Abs(originalPosition.y - transform.position.y) >= 100f && respawn)
-            {
-                timeUntilRespawn = respawnTime;
-                falling = false;
-                respawning = true;
             }
         }
         else if (respawning)
@@ -76,8 +73,8 @@ public class FallingPlatform : MonoBehaviour
             {
                 // Reset the platform position on respawn
                 respawning = false;
-                rb.isKinematic = true;
                 rb.velocity = Vector3.zero;
+                rb.isKinematic = true;
                 transform.position = originalPosition;
             }
         }

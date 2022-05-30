@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
 
     [Header("Other Variables")]
     [SerializeField] Light pLight;//light emanating from character
-    public Transform respawnTransform;
     private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
 
     // Runtime Variables
@@ -42,6 +41,7 @@ public class Player : MonoBehaviour
 
     // Components
     Rigidbody rb;
+    PlayerRespawn playerRespawn;
 
     // Other Objects
     GameObject managerObject;
@@ -53,6 +53,8 @@ public class Player : MonoBehaviour
     {
         // Get Components
         rb = GetComponent<Rigidbody>();
+        playerRespawn = GetComponent<PlayerRespawn>();
+
         // Get Objects
         managerObject = GameObject.FindWithTag("Manager");
         audioManager = FindObjectOfType<AudioManager>();
@@ -109,6 +111,7 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer() {
         // Reset the player position to spawn location
+        Transform respawnTransform = playerRespawn.GetRespawnPoint();
         transform.position = respawnTransform.position;
         transform.rotation = respawnTransform.rotation;
         rb.velocity = Vector3.zero;
