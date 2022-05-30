@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Goal") && Manager.score>=Manager.winScore)
         {
+            managerObject.GetComponent<Manager>().EndGame();
             rb.useGravity = false;
             Manager.ascending = true;
         }
