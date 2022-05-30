@@ -4,6 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.IO;
+
+[System.Serializable]
+public class ScoreSave
+{
+    public List<int> scores;
+    public List<string> names;
+
+    public ScoreSave(List<int> scores, List<string> names)
+    {
+        this.scores = scores;
+        this.names = names;
+    }
+}
 
 public class ScoreManager : MonoBehaviour
 {
@@ -34,6 +48,8 @@ public class ScoreManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            LoadScores();
         }
     }
 
@@ -54,6 +70,16 @@ public class ScoreManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void AddScore(int score, string name)
+    {
+        scores.Add(score);
+        names.Add(name);
+
+        SortList();
+
+        SaveScores();
     }
 
     void SortList()
@@ -80,5 +106,27 @@ public class ScoreManager : MonoBehaviour
             //this will be used to locate the player's name from the names list
             oldIndices.Add(maxIndex);
         }//repeat for the number of elements in list
+    }
+
+    void SaveScores()
+    {
+        ScoreSave scoreSave = new ScoreSave(scores, names);
+
+        string saveString = JsonUtility.ToJson(scoreSave);
+
+        File.WriteAllText(Application.persistentDataPath + "/scores", saveString);
+    }
+
+    void LoadScores()
+    {
+        if (!File.Exists(Application.persistentDataPath + "/scores"))
+            return;
+
+        string saveString = File.ReadAllText(Application.persistentDataPath + "/scores");
+
+        ScoreSave scoreSave = JsonUtility.FromJson<ScoreSave>(saveString);
+
+        scores = scoreSave.scores;
+        names = scoreSave.names;
     }
 }

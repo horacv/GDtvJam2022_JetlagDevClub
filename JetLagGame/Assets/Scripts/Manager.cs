@@ -167,9 +167,7 @@ public class Manager : MonoBehaviour
         StartCoroutine(fadeOutLastCR);
     }
     public void SaveResults() {
-        scoreManager.GetComponent<ScoreManager>().scores.Add(score);
-        if (nameInput.text == "") { scoreManager.GetComponent<ScoreManager>().names.Add("Anon"); }
-        else { scoreManager.GetComponent<ScoreManager>().names.Add(nameInput.text);}
+        scoreManager.GetComponent<ScoreManager>().AddScore(score, nameInput.text == "" ? "Anon" : nameInput.text);
         
         SceneManager.LoadScene(1);
     }
