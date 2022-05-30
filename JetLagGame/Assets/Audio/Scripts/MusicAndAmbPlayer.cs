@@ -40,11 +40,7 @@ public class MusicAndAmbPlayer : MonoBehaviour
         ambianceEventInstance.start();
         ambianceEventInstance.release();
     }
-
-    private void Update()
-    {
-        SetLevelState();
-    }
+    
     void SetLevelState()
     {
         switch (SceneManager.GetActiveScene().name)
@@ -56,5 +52,23 @@ public class MusicAndAmbPlayer : MonoBehaviour
                 FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[1]);
                 break;
         }
+    }
+
+    public void SetMenuAudio()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[0]);
+    }
+    public void SetLevel1Audio()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[1]);
+    }
+    public void SetWinAudio()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[2]);
+    }
+    
+    public void SetLoseAudio()
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel(audioManager.parameters.levelParameter,audioManager.parameters.levelParameterLabels[3]);
     }
 }

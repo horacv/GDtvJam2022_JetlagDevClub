@@ -43,6 +43,7 @@ public class Manager : MonoBehaviour
     public TextAsset inkJSON;
     private string convoName;
 
+    public MusicAndAmbPlayer musicAndAmbPlayer;
     private void Awake()
     {
         //make sure that there is only single instance of manager
@@ -183,7 +184,7 @@ public class Manager : MonoBehaviour
     }
     public void SaveResults() {
         scoreManager.GetComponent<ScoreManager>().AddScore(score, nameInput.text == "" ? "Anon" : nameInput.text);
-        
+        musicAndAmbPlayer.SetMenuAudio();
         SceneManager.LoadScene(1);
     }
 

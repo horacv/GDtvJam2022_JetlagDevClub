@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 75690227}
   - component: {fileID: 75690226}
   - component: {fileID: 75690225}
+  - component: {fileID: 75690229}
   m_Layer: 0
   m_Name: GoalTrigger
   m_TagString: Goal
@@ -752,6 +753,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &75690229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75690224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda687594eb3448d8a8cae893ec6dadb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicAndAmbPlayer: {fileID: 1099161858}
 --- !u!4 &75956357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3310503516542685705, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
@@ -5474,7 +5488,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-19476
+  m_Name: pb_Mesh-9756
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7795,6 +7809,7 @@ MonoBehaviour:
   nameInput: {fileID: 1800684665}
   pauseMenu: {fileID: 2023124693}
   inkJSON: {fileID: 4900000, guid: 7956be7a55aede245adbf72cc8ce5d7c, type: 3}
+  musicAndAmbPlayer: {fileID: 1099161858}
 --- !u!4 &655180489
 Transform:
   m_ObjectHideFlags: 0
@@ -10790,6 +10805,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3310503516542685705, guid: 44d65eaf3130ecc4a970976c37f4164c, type: 3}
   m_PrefabInstance: {fileID: 408874179}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1099161858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -4675853456627789298, guid: ce0a8e7f53ecc4bdd9b10cac03183f31, type: 3}
+  m_PrefabInstance: {fileID: 1193925279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7652c5464e0b14a80b5aae346b0ecad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1107121073
 GameObject:
   m_ObjectHideFlags: 0
@@ -27270,7 +27296,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37354
+  m_Name: pb_Mesh33056
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

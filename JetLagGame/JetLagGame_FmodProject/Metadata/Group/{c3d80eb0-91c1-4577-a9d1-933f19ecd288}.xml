@@ -4,6 +4,9 @@
 		<property name="color">
 			<value>Red</value>
 		</property>
+		<property name="volume">
+			<value>1</value>
+		</property>
 		<property name="name">
 			<value>MASTER BUS</value>
 		</property>
@@ -28,14 +31,18 @@
 	<object class="MixerBusFader" id="{ff5b9b69-9d57-4ed8-8013-95cde780c7a1}" />
 	<object class="LimiterEffect" id="{8c32135b-0960-4bca-8f4f-e0945da0d10c}">
 		<property name="boost">
-			<value>8</value>
+			<value>10</value>
 		</property>
 		<property name="ceiling">
-			<value>-3</value>
+			<value>-0.800000012</value>
 		</property>
 		<property name="release">
 			<value>8</value>
 		</property>
 	</object>
-	<object class="LoudnessMeter" id="{3e3e70c4-b389-49bf-aede-4909be143850}" />
+	<object class="LoudnessMeter" id="{3e3e70c4-b389-49bf-aede-4909be143850}">
+		<property name="loudnessTarget">
+			<value>-12</value>
+		</property>
+	</object>
 </objects>

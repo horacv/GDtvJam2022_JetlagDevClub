@@ -62,7 +62,7 @@
 			<destination>{f5ec828d-5c9c-41a0-87ee-1419759f1ce1}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{c13a4422-269b-480a-aa49-0f7a5c1e498f}</destination>
+			<destination>{ed508005-c4db-4c3b-83be-ceb4aed68547}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{ad7ffff6-926a-4f1d-8a91-d407634832a6}">
@@ -149,6 +149,9 @@
 	<object class="MultiSound" id="{c834d9e4-d2ce-40f9-a060-e5c6ed30a99e}">
 		<property name="startOffset">
 			<value>4</value>
+		</property>
+		<property name="volume">
+			<value>2</value>
 		</property>
 		<property name="playlistMode">
 			<value>1</value>
