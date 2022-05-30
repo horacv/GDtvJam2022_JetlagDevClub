@@ -3,7 +3,24 @@ guid: c5bc7ee7f24b66944b9ff9b0d0119fdb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - sceneLight: {instanceID: 0}
+  - spotLight: {instanceID: 0}
+  - winLight: {instanceID: 0}
+  - scoreManager: {instanceID: 0}
+  - blackBox: {instanceID: 0}
+  - barkBox: {instanceID: 0}
+  - dialogueBox: {instanceID: 0}
+  - saveBox: {instanceID: 0}
+  - speakerDialogue: {instanceID: 0}
+  - speakerDialogue2: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - scoreText2: {instanceID: 0}
+  - nameInput: {instanceID: 0}
+  - pauseMenu: {instanceID: 0}
+  - inkJSON: {instanceID: 0}
+  - musicAndAmbPlayer: {fileID: -4675853456627789298, guid: ce0a8e7f53ecc4bdd9b10cac03183f31, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -196,6 +196,7 @@ public class Manager : MonoBehaviour
 
     public void Exit()
     {
+        musicAndAmbPlayer.SetMenuAudio();
         SceneManager.LoadScene(1);
     }
 
