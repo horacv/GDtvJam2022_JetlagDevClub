@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Goal"))
+        if (collision.gameObject.CompareTag("Goal") && Manager.score>=Manager.winScore)
         {
             rb.useGravity = false;
             Manager.ascending = true;

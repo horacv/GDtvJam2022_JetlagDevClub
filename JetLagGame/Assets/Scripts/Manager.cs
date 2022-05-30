@@ -15,8 +15,8 @@ public class Manager : MonoBehaviour
     public Light sceneLight;
     public Light spotLight;
     public Light winLight;
-    private int score;
-    private int winScore=500;
+    public static int score;
+    public static int winScore=500;
     public static bool ascending;
     //UI elements
     public GameObject blackBox;
