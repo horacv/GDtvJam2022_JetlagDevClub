@@ -66,11 +66,11 @@ MonoBehaviour:
     mainCharacter:
       footsteps:
         Guid:
-          Data1: 0
-          Data2: 0
-          Data3: 0
-          Data4: 0
-        Path: 
+          Data1: 476862141
+          Data2: 1222759403
+          Data3: -791238489
+          Data4: 1819603950
+        Path: event:/SFX/Interactables/Play_UIClick
       jump:
         Guid:
           Data1: -2041054962
@@ -100,6 +100,13 @@ MonoBehaviour:
           Data3: -245600875
           Data4: 1404091344
         Path: event:/SFX/Interactables/Play_Platforms
+      UI_Click:
+        Guid:
+          Data1: 476862141
+          Data2: 1222759403
+          Data3: -791238489
+          Data4: 1819603950
+        Path: event:/SFX/Interactables/Play_UIClick
     ambiance:
       ambiance:
         Guid:

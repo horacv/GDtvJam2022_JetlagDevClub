@@ -37,6 +37,11 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    public void PlayUICLick()
+    {
+        RuntimeManager.PlayOneShot(sfx.interactables.UI_Click);
+    }
+
     [Serializable]
     public class AudioBusses
     {
@@ -78,6 +83,7 @@ public class AudioManager : MonoBehaviour
         {
             public EventReference movingBlocks;
             public EventReference fallingPlatforms;
+            public EventReference UI_Click;
         }
         
         [Serializable]
