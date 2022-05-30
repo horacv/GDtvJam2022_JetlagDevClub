@@ -31,6 +31,7 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreText2;
     public TMP_InputField nameInput;
+    public GameObject pauseMenu;
     private bool barkTriggered;//bark was triggered instead of being called automatically
     private bool lost;
     //Variables to hold coroutines
@@ -84,6 +85,20 @@ public class Manager : MonoBehaviour
         scoreText2.text = "Your score: " + score;
         if (ascending) {
             player.transform.position += new Vector3(0, 5*Time.deltaTime, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseMenu.activeSelf)
+            {
+                pauseMenu.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 
@@ -171,6 +186,18 @@ public class Manager : MonoBehaviour
         
         SceneManager.LoadScene(1);
     }
+
+    public void Continue()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     //Coroutines that fade scene in and out
     private IEnumerator FadeIn()
     {

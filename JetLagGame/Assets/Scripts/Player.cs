@@ -230,7 +230,6 @@ public class Player : MonoBehaviour
         {
             pulling = true;
             grabbedObject = block;
-            block.transform.parent = transform;
         }
     }
 
