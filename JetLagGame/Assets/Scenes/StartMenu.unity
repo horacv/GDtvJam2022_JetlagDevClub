@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1756,8 +1756,18 @@ MonoBehaviour:
   names: []
   maxScores: 
   oldIndices: 
-  scoreTexts: []
-  nameTexts: []
+  scoreTexts:
+  - {fileID: 447497630}
+  - {fileID: 998646339}
+  - {fileID: 1849120348}
+  - {fileID: 1851548218}
+  - {fileID: 257280982}
+  nameTexts:
+  - {fileID: 522166373}
+  - {fileID: 1133450124}
+  - {fileID: 836436549}
+  - {fileID: 1235431002}
+  - {fileID: 1136494676}
   startButton: {fileID: 0}
   manager: {fileID: 0}
 --- !u!1 &1642000774

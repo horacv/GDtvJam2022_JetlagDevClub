@@ -56,8 +56,8 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        scoreTexts = GameObject.FindGameObjectsWithTag("Score");
-        nameTexts = GameObject.FindGameObjectsWithTag("Name");
+        //scoreTexts = GameObject.FindGameObjectsWithTag("Score");
+        //nameTexts = GameObject.FindGameObjectsWithTag("Name");
         if (SceneManager.GetActiveScene().buildIndex == 1 && scores.Count != 0)
         {
             SortList();
