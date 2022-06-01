@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.IO;
+using System;
 
 [System.Serializable]
 public class ScoreSave
@@ -17,6 +18,17 @@ public class ScoreSave
         this.scores = scores;
         this.names = names;
     }
+}
+
+public class ListSorter : IComparer
+{
+
+    // Calls CaseInsensitiveComparer.Compare on the monster name string.
+    int IComparer.Compare(System.Object x, System.Object y)
+    {
+        return ((new CaseInsensitiveComparer()).Compare(((GameObject)x).name, ((GameObject)y).name));
+    }
+
 }
 
 public class ScoreManager : MonoBehaviour
@@ -55,11 +67,16 @@ public class ScoreManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        //scoreTexts = GameObject.FindGameObjectsWithTag("Score");
-        //nameTexts = GameObject.FindGameObjectsWithTag("Name");
+    {
         if (SceneManager.GetActiveScene().buildIndex == 1 && scores.Count != 0)
         {
+            //sort UI elements
+            //Load UI elements that hold scores
+            IComparer myComparer = new ListSorter();
+            scoreTexts = GameObject.FindGameObjectsWithTag("Score");
+            nameTexts = GameObject.FindGameObjectsWithTag("Name");
+            Array.Sort(scoreTexts, myComparer);
+            Array.Sort(nameTexts, myComparer);
             SortList();
             for (int i = 0; i < 5; i++)
             {
@@ -119,6 +136,7 @@ public class ScoreManager : MonoBehaviour
 
     void LoadScores()
     {
+       
         if (!File.Exists(Application.persistentDataPath + "/scores"))
             return;
 

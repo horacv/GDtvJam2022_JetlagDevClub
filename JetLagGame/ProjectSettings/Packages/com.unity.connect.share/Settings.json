@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"/Users/horacio/Desktop/WebGL/HellRun;/Users/horacio/Desktop/WebGL/TestBuild;/Users/horacio/Desktop/WebGL/Test2;/Users/horacio/Desktop/WebGL/Test1;;;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/onlya/Desktop/Build;/Users/horacio/Desktop/WebGL/HellRun;/Users/horacio/Desktop/WebGL/TestBuild;/Users/horacio/Desktop/WebGL/Test2;/Users/horacio/Desktop/WebGL/Test1;;;;;\"}"
             }
         ]
     }
